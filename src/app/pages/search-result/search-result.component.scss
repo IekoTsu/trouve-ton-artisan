@@ -1,0 +1,21 @@
+.artisan-list__container{
+    max-width: 996px;
+    background-color: #f1f8fc;
+    row-gap: 10px;
+    padding: 24px;
+    border-radius: 15px;
+    box-shadow: 9px 20px 20px rgba(0, 0, 0, 0.25);
+}
+
+.artisan-list__search{
+    color: #0074c7;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.artisan-list__result{
+    padding: 24px;
+    row-gap: 24px;
+    border: solid #00497c 2px;
+    border-radius: 15px;
+}
