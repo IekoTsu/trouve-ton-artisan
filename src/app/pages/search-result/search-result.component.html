@@ -1,30 +1,15 @@
 <main class="artisan-list d-flex flex-column justify-content-center align-items-center px-4 px-sm-3">
     <section class="artisan-list__container d-flex flex-column justify-content-start w-100">
-        <h1 class="artisan-list__search">Résulta pour "recherche"</h1>
+        <h1 class="artisan-list__search" *ngIf="category || search">Résulta pour "{{category}} {{search}}"</h1>
+        <h1 class="artisan-list__search" *ngIf=" !category && !search">Tous nos artisan</h1>
         <div class="artisan-list__result row">
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <app-artisan-card></app-artisan-card>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <app-artisan-card></app-artisan-card>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <app-artisan-card></app-artisan-card>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <app-artisan-card></app-artisan-card>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <app-artisan-card></app-artisan-card>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <app-artisan-card></app-artisan-card>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
-                <app-artisan-card></app-artisan-card>
-            </div>
+            <ng-container *ngFor="let artisan of (data | filter: category : search)">
+                <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center">
+                    <app-artisan-card [artisan]="artisan"></app-artisan-card>
+                </div>
+            </ng-container>
             
         </div>
     </section>
 </main>
-   
+    
