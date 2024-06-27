@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+
+  constructor( private router : Router ){}
+
   toggleMenu(){
     let NavMenu = document.querySelector(".nav-bar__menu")
 
@@ -15,4 +19,14 @@ export class HeaderComponent {
       NavMenu.classList.toggle("active")
     }
   }
+
+  navigateToResult(category:string = "", search:string = ""){
+    if (category){
+      this.router.navigate(['/result',category])
+    }else{
+      this.router.navigate(['/result',{search}])
+      console.log(search)
+    }
+  }
 }
+ 

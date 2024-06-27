@@ -14,9 +14,10 @@
     <section class="home__artisan-section d-flex flex-column justify-content-center align-items-center">
         <h2 class="home__artisan-title text-center">Les trois artisans du mois</h2>
         <div class="home__artisan-highlighted d-flex justify-content-center align-items-center flex-wrap ">
-            <app-artisan-card></app-artisan-card>
-            <app-artisan-card></app-artisan-card>
-            <app-artisan-card></app-artisan-card>
+            <ng-container *ngFor="let artisan of (data)">
+                <app-artisan-card *ngIf="artisan.top" [artisan]="artisan"></app-artisan-card>
+            </ng-container>
+            
         </div>
     </section>
 </main>
