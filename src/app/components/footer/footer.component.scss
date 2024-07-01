@@ -17,6 +17,7 @@
 
 .footer__logo{
     border-radius: 64px;
+    cursor: pointer;
 }
 
 .footer__links{
@@ -39,6 +40,15 @@
 .footer_item{
     margin-bottom: 19px;
     color: #fff;
+}
+
+.footer_item-link{
+    text-decoration: none;
+    color: #fff;
     font-size: 1.25rem;
-    
+}
+
+
+.footer_item-link:hover {
+    text-decoration: solid underline #fff;
 }
