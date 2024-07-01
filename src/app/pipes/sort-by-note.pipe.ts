@@ -6,10 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortByNotePipe implements PipeTransform {
 
-  transform(artisan: any[]): any[] {
+  transform(artisan: any[], order : number): any[] {
     return artisan.sort((a:any , b:any)=> {
-      if ( Number(a.note) < Number(b.note) ) { return 1}
-      else if ( Number(a.note) > Number(b.note) ) { return -1 }
+      if ( Number(a.note) < Number(b.note) ) { return 1*order}
+      else if ( Number(a.note) > Number(b.note) ) { return -1*order }
       else { return 0}
     })
   }
