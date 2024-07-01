@@ -7,10 +7,21 @@
     box-shadow: 9px 20px 20px rgba(0, 0, 0, 0.25);
 }
 
-.artisan-list__search{
+.artisan-list__header-search{
     color: #0074c7;
     font-size: 1.5rem;
     font-weight: 500;
+}
+
+.fa-arrow-up-wide-short , .fa-arrow-down-short-wide{
+    color: #0074c7;
+    padding: 5px;
+    font-size: 30px;
+}
+
+.artisan-list__header-sort{
+    border: solid #00497c 2px;
+    border-radius: 10px;
 }
 
 .artisan-list__result{
@@ -18,4 +29,8 @@
     row-gap: 24px;
     border: solid #00497c 2px;
     border-radius: 15px;
+}
+
+.artisan-list__no-result{
+    color: #00497c;
 }
