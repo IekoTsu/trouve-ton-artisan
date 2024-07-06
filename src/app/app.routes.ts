@@ -4,6 +4,7 @@ import { ArtisanPageComponent } from './pages/artisan-page/artisan-page.componen
 import { SearchResultComponent } from './pages/search-result/search-result.component';
 import { NgModule } from '@angular/core';
 import { NotFoundErrorComponent } from './pages/not-found-error/not-found-error.component';
+import { ResponseModalComponent } from './components/response-modal/response-modal.component';
 
 export const routes: Routes = [
     { path: '', redirectTo:'home', pathMatch:'full' },
@@ -12,12 +13,9 @@ export const routes: Routes = [
     { path:'result', component: SearchResultComponent },
     { path:'result/:category', component: SearchResultComponent },
     { path:'result/:search', component: SearchResultComponent },
+    { path:'modal', component: ResponseModalComponent },
+    
     { path:'**', component: NotFoundErrorComponent }
 ];
  
 
-@NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
-})
-export class AppRoutingModule {}
