@@ -25,7 +25,7 @@ export class FilterPipe implements PipeTransform {
         // Concatenate name, specialty, and location into a single string for comparison
         let artisanString = artisan.name + artisan.specialty + artisan.location
         // Check if the concatenated string includes the search query
-        return artisanString.toLowerCase().includes(query.toLowerCase())
+        return artisanString.replace(/\s+/g, '').toLowerCase().includes(query.toLowerCase())
       } )
     }
     // If neither condition matches, return an empty array
