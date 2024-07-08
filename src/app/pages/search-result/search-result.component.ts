@@ -17,7 +17,7 @@ export class SearchResultComponent {
   category : string = ""
   search : string = ""
   data : any = []
-  order : number = 0
+  order : number = 0 // Variable to manage the sorting order of the data
 
   constructor( 
     private route : ActivatedRoute,
@@ -39,6 +39,7 @@ export class SearchResultComponent {
     })
   }
   
+  // Method to set the sorting order for the artisan data
   sortArtisan(order : number){
     this.order = order
   }

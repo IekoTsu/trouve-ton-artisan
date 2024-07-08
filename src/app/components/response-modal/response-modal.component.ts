@@ -13,10 +13,11 @@ export class ResponseModalComponent {
   @Input() message : string = "";
   @Input() loading : boolean = false;
 
+  // Output property to emit an event when the modal is closed
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
 
   closeModal(){
-    this.close.emit();
+    this.close.emit(); // Emit the 'close' event to notify the parent component
   }
 
 }

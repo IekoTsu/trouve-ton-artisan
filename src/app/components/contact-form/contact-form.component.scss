@@ -68,7 +68,7 @@ p{
     cursor: pointer;
 }
 
-.contact-form__submit span{
+.contact-form__submit-span{
     display: block;
     margin-left: 0.3em;
     transition: all 0.3s ease-in-out;
@@ -83,6 +83,10 @@ p{
   .contact-form__submit:hover{
     background: #00497c;
   }
+
+  .svg-wrapper{
+    display: block;
+  }
   
   .contact-form__submit:hover .svg-wrapper {
     animation: fly-1 0.6s ease-in-out infinite alternate;
@@ -92,7 +96,7 @@ p{
     transform: translateX(1.2em) rotate(45deg) scale(1.1);
   }
   
-  .contact-form__submit:hover span {
+  .contact-form__submit:hover .contact-form__submit-span {
     transform: translateX(5em);
   }
   

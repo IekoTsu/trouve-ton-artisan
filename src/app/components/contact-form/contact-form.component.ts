@@ -3,6 +3,7 @@ import { EmailService } from '../../services/email.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResponseModalComponent } from '../response-modal/response-modal.component';
 import { CommonModule } from '@angular/common';
+import { log } from 'node:console';
 
 
 @Component({
@@ -15,12 +16,13 @@ import { CommonModule } from '@angular/common';
 export class ContactFormComponent {
   @Input() artisanMail : any
 
-  message: string = '';
-  loading: boolean = false;
-  mailStatus: string = '';
+  message: string = ''; // Message to be displayed in the modal
+  loading: boolean = false; // Indicates if the email is being sent (loading state)
+  mailStatus: string = ''; // Status of the email send operation ('ok' or 'error') used as class in the modal
   fieldOk : boolean = true;
-  showModal : boolean = false;
+  showModal : boolean = false; // Controls the visibility of the modal
 
+  // Data model for the email form
   emailData = {
     name: '',
     from : '',
@@ -29,6 +31,7 @@ export class ContactFormComponent {
     body : '' 
   }
 
+  // Object to track which fields are empty
   emptyFields: { name: boolean; from: boolean; subject: boolean; body: boolean } = {
     name: false,
     from: false,
@@ -38,11 +41,12 @@ export class ContactFormComponent {
 
   constructor(private emailService : EmailService) {  }
 
+  // Method to send an email
   sendEmail() {
-    this.checkFields()
+    this.checkFields() // Validate fields before sending
     if (this.fieldOk){
       this.showModal = true
-      this.emailData.to = this.artisanMail
+      this.emailData.to = this.artisanMail // Set recipient's email address
       this.loading = true; // Start loading state
       this.message = ''; // Clear previous messages
 
@@ -59,10 +63,11 @@ export class ContactFormComponent {
       }
     })
     }else{
-      this.shakeAnimation()
+      this.shakeAnimation() // Trigger shake animation for the error if fields are not valid
     }
   }
 
+  // Method to check if required fields are filled
   checkFields(){
     this.emptyFields = {
       name: this.emailData.name?.replace(/\s+/g, '') === '',
@@ -74,6 +79,7 @@ export class ContactFormComponent {
     this.fieldOk = !(this.emptyFields.name || this.emptyFields.from || this.emptyFields.subject || this.emptyFields.body)
   }
 
+  // Method to apply a shake animation to an error message element
   shakeAnimation(){
     setTimeout(()=>{
       let errorMessage = document.getElementById('error')
@@ -83,7 +89,7 @@ export class ContactFormComponent {
         errorMessage.classList.remove('shake')
       }, 250)
     }
-    }, 1)
+    }, 1) // Delay to ensure DOM is updated before applying animation
   }
 
   closeModal(){

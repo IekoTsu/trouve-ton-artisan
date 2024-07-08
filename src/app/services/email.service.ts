@@ -8,20 +8,21 @@ import { catchError } from 'rxjs/operators';
 })
 export class EmailService {
 
-  private apiUrl = 'http://localhost:3000/send-email';
+  private apiUrl = 'http://localhost:3000/send-email'; // API endpoint for sending emails
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } // Inject HttpClient to make HTTP requests
 
+
+  // Method to send an email via POST request
   sendEmail(emailData: {name:string, from: string, to: string, subject: string, body: string }): Observable<any> {
     return this.http.post(this.apiUrl, emailData).pipe(
       catchError(this.handleError)
     );
   }
 
+  // Private method to handle HTTP errors
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
-
-    console.log("service" ,error)
 
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred.

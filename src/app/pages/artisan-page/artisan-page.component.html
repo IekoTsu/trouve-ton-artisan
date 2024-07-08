@@ -14,13 +14,13 @@
 
         <div class="artisan__details d-flex flex-column flex-md-row justify-content-between">
             <div class="artisan__info d-flex flex-column w-100">
-                <p class="artisan__detail">Speciality : <strong>{{ artisan.specialty }}</strong></p>
-                <p class="artisan__detail">Location : <strong>{{ artisan.location }}</strong></p>
+                <p class="artisan__detail">Spécialité : <strong>{{ artisan.specialty }}</strong></p>
+                <p class="artisan__detail">Localisation : <strong>{{ artisan.location }}</strong></p>
                 <p class="artisan__detail" *ngIf="artisan.website">website : <strong><a href="{{ artisan.website }}" target="_blank" class="text-reset" >{{ artisan.website.slice(8) }}</a></strong></p>                
             </div>
 
             <article class="artisan__about w-100 d-flex flex-column">
-                <h2 class="artisan__about-title">A propos :</h2>
+                <h2 class="artisan__about-title">À propos :</h2>
                 <p class="artisan__about-text">{{ artisan.about }}</p>
             </article>
         </div>
