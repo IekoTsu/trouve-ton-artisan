@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule ,ArtisanCardComponent, SortByNotePipe],
+  imports: [CommonModule ,ArtisanCardComponent],
   providers: [ArtisanService, SortByNotePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -15,9 +15,8 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent {
 
   data: any[] = []
-  topThree: any[] = []
 
-  constructor( private artisanService : ArtisanService , private sortByNote : SortByNotePipe) { }
+  constructor( private artisanService : ArtisanService) { }
 
   ngOnInit(){
     this.artisanService.getData().subscribe(

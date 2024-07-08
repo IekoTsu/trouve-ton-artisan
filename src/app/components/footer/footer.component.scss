@@ -1,8 +1,7 @@
 .footer{
     width: 100%;
     height: fit-content;
-    background-color: #0074c7;
-    padding: 0 120px 0 120px;
+    background-color: #0074c7; 
 }
 
 .footer__container{
@@ -17,6 +16,9 @@
 
 .footer__logo{
     border-radius: 64px;
+    max-width: 100%;
+    height: auto;
+    width: auto;
     cursor: pointer;
 }
 
